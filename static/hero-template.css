@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     border: 2px solid black;
-    background-size: cover; 
 }
 
 .left, .center, .right {
@@ -10,7 +9,7 @@
 }
 
 .center {
-    width: 800px;
+    width: 950px;
     height: 1500px;
     background-color: rgba(20, 20, 20, 0.8);
 }

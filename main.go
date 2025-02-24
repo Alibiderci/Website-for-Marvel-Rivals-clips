@@ -2,15 +2,24 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/Alibiderci/website-for-clips/handlers"
 )
 
 func main() {
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
-	http.HandleFunc("hero/", handlers.HeroHandler)
+	fs := http.FileServer(http.Dir("static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
+
+	http.HandleFunc("/", handlers.HomePageHandler)
+
+	http.HandleFunc("POST /heroName", handlers.HeroNameHandler)
+	http.HandleFunc("GET /hero", handlers.HeroHandler)
 
 	fmt.Println("Server started at :8080")
-	http.ListenAndServe(":8080", nil)
+	err := http.ListenAndServe(":8080", nil)
+	if err != nil {
+		log.Fatal("Server error:", err)
+	}
 }

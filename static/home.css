@@ -21,6 +21,12 @@
     grid-template-columns: repeat(7, 200px);
 }
 
+.clickable-image {
+    all: unset;
+    display: inline-block;
+    cursor: pointer;
+}
+
 img {
     width: 100%;
     height: 100%;
@@ -32,7 +38,7 @@ img {
 }
 
 body {
-    background-image: url(/assets/asgard.jpg);
+    background-image: url(/static/assets/asgard.jpg);
 }
 
 h1 {
